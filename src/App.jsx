@@ -1,21 +1,21 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import Header from "./component/header/Header";
 import "./App.css";
 import Blogs from "./component/blogs/Blogs";
 import Bookmarks from "./component/bookMarks/Bookmarks";
-
+import { useState } from "react";
 function App() {
-  const [count, setCount] = useState(0);
-
+  const [bookmarks,setBookmark]=useState([]);
+  const addToBookmark = post => {
+    const newBookmarked = [...bookmarks, post];
+    setBookmark(newBookmarked);
+  };
   return (
     <>
       <div className="max-w-7xl mx-auto">
         <Header></Header>
-        <div className="flex mx-5 gap-8">
-          <Blogs></Blogs>
-          <Bookmarks></Bookmarks>
+        <div className="md:flex mx-5 gap-8">
+          <Blogs addToBookmark={addToBookmark}></Blogs>
+          <Bookmarks bookmarks={bookmarks}></Bookmarks>
         </div>
       </div>
     </>

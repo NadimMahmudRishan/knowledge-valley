@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
-const Blog = ({ post }) => {
+import { PiBookmarkSimple } from "react-icons/pi";
+
+const Blog = ({ post, addToBookmark }) => {
   const {
     cover,
     author,
@@ -25,17 +27,22 @@ const Blog = ({ post }) => {
             </p>
           </div>
         </div>
-        <div className="">
+        <div className=" flex gap-2">
           <span className="text-[#11111199] text-xl font-medium">
             {reading_time} min read
           </span>
+          <button onClick={()=>addToBookmark(post)} className="text-xl">
+            <PiBookmarkSimple />
+          </button>
         </div>
       </div>
       <h2 className="text-4xl font-bold">{heading}</h2>
       <div>
         {" "}
         {hashTag.map((hash) => (
-          <span className="text-[#11111199] text-xl font-medium">#{hash} </span>
+          <span key={hash[0]} className="text-[#11111199] text-xl font-medium">
+            #{hash}{" "}
+          </span>
         ))}
       </div>
       <div>
@@ -49,6 +56,7 @@ const Blog = ({ post }) => {
 
 Blog.propTypes = {
   post: PropTypes.object.isRequired,
+  addToBookmark: PropTypes.func.isRequired,
 };
 
 export default Blog;
