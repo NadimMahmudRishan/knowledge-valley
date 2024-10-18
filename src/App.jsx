@@ -11,10 +11,12 @@ function App() {
 
   return (
     <>
-      <Header></Header>
-      <div className="flex">
-        <Blogs></Blogs>
-        <Bookmarks></Bookmarks>
+      <div className="max-w-7xl mx-auto">
+        <Header></Header>
+        <div className="flex mx-5 gap-8">
+          <Blogs></Blogs>
+          <Bookmarks></Bookmarks>
+        </div>
       </div>
     </>
   );
