@@ -1,14 +1,17 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
+import Header from "./component/header/Header";
 import "./App.css";
+import Blogs from "./component/blog/Blogs";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <h1 className="text-6xl bg-red-300">Klowledge Valley</h1>
+      <Header></Header>
+      <Blogs></Blogs>
     </>
   );
 }
