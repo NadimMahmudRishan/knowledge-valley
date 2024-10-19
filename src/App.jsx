@@ -4,8 +4,14 @@ import Blogs from "./component/blogs/Blogs";
 import Bookmarks from "./component/bookMarks/Bookmarks";
 import { useState } from "react";
 function App() {
-  const [bookmarks,setBookmark]=useState([]);
-  const addToBookmark = post => {
+  const [bookmarks, setBookmark] = useState([]);
+  const [times, setTime] = useState(0);
+
+  const handelTime = (reading_time) => {
+    const newtime = times + reading_time;
+    setTime(newtime);
+  };
+  const addToBookmark = (post) => {
     const newBookmarked = [...bookmarks, post];
     setBookmark(newBookmarked);
   };
@@ -14,8 +20,8 @@ function App() {
       <div className="max-w-7xl mx-auto">
         <Header></Header>
         <div className="md:flex mx-5 gap-8">
-          <Blogs addToBookmark={addToBookmark}></Blogs>
-          <Bookmarks bookmarks={bookmarks}></Bookmarks>
+          <Blogs addToBookmark={addToBookmark} handelTime={handelTime}></Blogs>
+          <Bookmarks bookmarks={bookmarks} times={times}></Bookmarks>
         </div>
       </div>
     </>

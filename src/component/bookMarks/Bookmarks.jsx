@@ -1,8 +1,14 @@
 import PropTypes from "prop-types";
 import Bookmark from "../bookmark/bookmark";
-const Bookmarks = ({ bookmarks }) => {
+import { useState } from "react";
+const Bookmarks = ({ bookmarks, times }) => {
   return (
-    <div>
+    <div className="w-1/3 my-10">
+      <div className="bg-[#6047EC1A] rounded-lg p-3">
+        <h2 className="text-2xl font-bold text-[#6047EC]">
+          Spent time on read : {times} min
+        </h2>
+      </div>
       <h2 className="font-bold text-2xl">
         Bookmarked Blogs : {bookmarks.length}
       </h2>
