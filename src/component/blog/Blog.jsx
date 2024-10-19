@@ -3,6 +3,7 @@ import { PiBookmarkSimple } from "react-icons/pi";
 
 const Blog = ({ post, addToBookmark, handelTime }) => {
   const {
+    id,
     cover,
     author,
     author_img,
@@ -47,7 +48,7 @@ const Blog = ({ post, addToBookmark, handelTime }) => {
       </div>
       <div>
         <button
-          onClick={() => handelTime(reading_time)}
+          onClick={() => handelTime(reading_time, id)}
           className="deccorarion-none underline text-[#6047EC] font-semibold text-xl"
         >
           Mard as read
